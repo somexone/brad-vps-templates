@@ -1,0 +1,124 @@
+[
+  {
+    "type": "stack",
+    "title": "Brad VPS - Secure Web App",
+    "description": "Reusable HTTPS-only web application for the Brad VPS. Routes through Traefik on the external proxy network and applies the existing CrowdSec and Authentik forward-auth middlewares.",
+    "categories": [
+      "Brad VPS",
+      "Docker",
+      "Traefik",
+      "Web"
+    ],
+    "platform": "linux",
+    "repository": {
+      "url": "https://raw.githubusercontent.com/somexone/brad-vps-templates/main/stacks/secure-web-app.yml"
+    },
+    "env": [
+      {
+        "name": "APP_NAME",
+        "label": "Application name",
+        "description": "Unique name used for the Traefik router and service.",
+        "default": "my-app"
+      },
+      {
+        "name": "APP_IMAGE",
+        "label": "Docker image",
+        "description": "Docker image for the application.",
+        "default": "nginx:alpine"
+      },
+      {
+        "name": "APP_HOST",
+        "label": "Application hostname",
+        "description": "Fully qualified hostname under brad-vps.duckdns.org.",
+        "default": "my-app.brad-vps.duckdns.org"
+      },
+      {
+        "name": "APP_PORT",
+        "label": "Application port",
+        "description": "HTTP port listened to by the container.",
+        "default": "80"
+      }
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "Brad VPS - Secure Web App + Storage",
+    "description": "HTTPS-only web application with configurable persistent storage. Routes through Traefik on the external proxy network and applies the existing CrowdSec and Authentik forward-auth middlewares.",
+    "categories": [
+      "Brad VPS",
+      "Docker",
+      "Traefik",
+      "Web"
+    ],
+    "platform": "linux",
+    "repository": {
+      "url": "https://raw.githubusercontent.com/somexone/brad-vps-templates/main/stacks/secure-web-app-storage.yml"
+    },
+    "env": [
+      {
+        "name": "APP_NAME",
+        "label": "Application name",
+        "description": "Unique name used for the Traefik router and service.",
+        "default": "my-app"
+      },
+      {
+        "name": "APP_IMAGE",
+        "label": "Docker image",
+        "description": "Docker image for the application.",
+        "default": "nginx:alpine"
+      },
+      {
+        "name": "APP_HOST",
+        "label": "Application hostname",
+        "description": "Fully qualified hostname under brad-vps.duckdns.org.",
+        "default": "my-app.brad-vps.duckdns.org"
+      },
+      {
+        "name": "APP_PORT",
+        "label": "Application port",
+        "description": "HTTP port listened to by the container.",
+        "default": "80"
+      },
+      {
+        "name": "APP_DATA",
+        "label": "Application data source",
+        "description": "Host path or named volume source for persistent application data.",
+        "default": "./data"
+      },
+      {
+        "name": "APP_DATA_PATH",
+        "label": "Application data path",
+        "description": "Container path where application data is mounted.",
+        "default": "/config"
+      }
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "Brad VPS - Internal Container",
+    "description": "Minimal private container for background jobs and internal services. It has no public Traefik route and publishes no host ports.",
+    "categories": [
+      "Brad VPS",
+      "Docker",
+      "Internal"
+    ],
+    "platform": "linux",
+    "repository": {
+      "url": "https://raw.githubusercontent.com/somexone/brad-vps-templates/main/stacks/internal-container.yml"
+    },
+    "env": [
+      {
+        "name": "APP_NAME",
+        "label": "Application name",
+        "description": "Name used to identify this application in the Compose project.",
+        "default": "internal-app"
+      },
+      {
+        "name": "APP_IMAGE",
+        "label": "Docker image",
+        "description": "Docker image for the internal container.",
+        "default": "alpine:latest"
+      }
+    ]
+  }
+]
