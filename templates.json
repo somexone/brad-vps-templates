@@ -1,6 +1,8 @@
-[
+{
+  "version": "2",
+  "templates": [
   {
-    "type": "stack",
+    "type": 3,
     "title": "Brad VPS - Secure Web App",
     "description": "Reusable HTTPS-only web application for the Brad VPS. Routes through Traefik on the external proxy network and applies the existing CrowdSec and Authentik forward-auth middlewares.",
     "categories": [
@@ -11,7 +13,8 @@
     ],
     "platform": "linux",
     "repository": {
-      "url": "https://raw.githubusercontent.com/somexone/brad-vps-templates/main/stacks/secure-web-app.yml"
+      "url": "https://github.com/somexone/brad-vps-templates",
+      "stackfile": "stacks/secure-web-app.yml"
     },
     "env": [
       {
@@ -41,7 +44,7 @@
     ]
   },
   {
-    "type": "stack",
+    "type": 3,
     "title": "Brad VPS - Secure Web App + Storage",
     "description": "HTTPS-only web application with configurable persistent storage. Routes through Traefik on the external proxy network and applies the existing CrowdSec and Authentik forward-auth middlewares.",
     "categories": [
@@ -52,7 +55,8 @@
     ],
     "platform": "linux",
     "repository": {
-      "url": "https://raw.githubusercontent.com/somexone/brad-vps-templates/main/stacks/secure-web-app-storage.yml"
+      "url": "https://github.com/somexone/brad-vps-templates",
+      "stackfile": "stacks/secure-web-app-storage.yml"
     },
     "env": [
       {
@@ -94,7 +98,7 @@
     ]
   },
   {
-    "type": "stack",
+    "type": 3,
     "title": "Brad VPS - Internal Container",
     "description": "Minimal private container for background jobs and internal services. It has no public Traefik route and publishes no host ports.",
     "categories": [
@@ -104,7 +108,8 @@
     ],
     "platform": "linux",
     "repository": {
-      "url": "https://raw.githubusercontent.com/somexone/brad-vps-templates/main/stacks/internal-container.yml"
+      "url": "https://github.com/somexone/brad-vps-templates",
+      "stackfile": "stacks/internal-container.yml"
     },
     "env": [
       {
@@ -119,6 +124,7 @@
         "description": "Docker image for the internal container.",
         "default": "alpine:latest"
       }
-    ]
-  }
-]
+      ]
+    }
+  ]
+}

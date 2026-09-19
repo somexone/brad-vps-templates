@@ -23,5 +23,7 @@ templates expect the existing `websecure` entrypoint and `letsencrypt`
 certificate resolver. The catalog does not deploy anything or contain
 credentials.
 
-The catalog is defined in `templates.json` and references the Compose files
-from the `main` branch through `raw.githubusercontent.com`.
+The catalog is defined in `templates.json` using the Portainer v2 Compose
+stack format (`type: 3`). Each entry references this GitHub repository and a
+`stackfile` path, allowing Dockhand to substitute the catalog inputs into the
+Compose files instead of injecting them into the application container.

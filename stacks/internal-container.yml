@@ -1,7 +1,9 @@
+version: "2"
+
 services:
   app:
-    image: ${APP_IMAGE:?APP_IMAGE is required}
-    container_name: ${APP_NAME:?APP_NAME is required}
+    image: ${APP_IMAGE}
+    container_name: ${APP_NAME}
     restart: unless-stopped
     networks:
       - default
